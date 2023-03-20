@@ -1,0 +1,23 @@
+
+textarea {
+  width: 100%;
+  margin: auto;
+  border: 0px;
+  border-bottom: solid;
+}
+
+button {
+  background-color: #4056A1;
+  color: #FFFFFF;    
+}
+
+.submit-counter {
+  display: flex;
+  justify-content: space-between;
+  font-family: Bungee;
+}
+
+
+.redFont {
+  color: red;
+}
