@@ -21,3 +21,46 @@ button {
 .redFont {
   color: red;
 }
+
+/* Styles for posted tweets */
+
+#tweets {
+  border: 0.1rem solid black;
+  padding: 1rem;
+}
+
+#tweets:hover {
+  box-shadow: 3px 3px 3px rgb(65, 13, 13);
+}
+
+article #tweets header {
+  display: flex;
+  justify-content: space-between;
+}
+
+article #tweets header #username {  
+  color: gray;
+}
+
+article #tweets p {
+  border-bottom: 0.2rem solid;
+  padding-bottom: 0.1rem;
+}
+
+article #tweets footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+article #tweets footer .icons {
+  display: flex;  
+}
+
+.icons a {
+  color: rgb(64, 63, 63);
+}
+
+.icons a:hover {
+  color: gray;
+}
+
