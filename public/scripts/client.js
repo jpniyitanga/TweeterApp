@@ -72,3 +72,17 @@ const renderTweets = (tweets) => {
  }
 }
 
+
+$(document).ready(function () {
+  console.log("ready")
+  const $form = $("form");
+  $form.submit(function(e) {
+    e.preventDefault();
+  
+    const $formData = $("textarea").serialize();
+    $.post('/tweets', $formData, function(response) {
+      console.log("response", response);
+    })
+  
+  })
+});
