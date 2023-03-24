@@ -18,12 +18,12 @@ nav {
   justify-content: center;
 } */
 
-nav #new-tweet {
+nav .new-tweet {
   font-family: Source Sans Pro, sans-serif;  
   font-weight: bold;
 }
 
-nav #new-tweet-2 {
+nav .new-tweet-2 {
 font-family: Source Sans Pro, sans-serif;
 }
 

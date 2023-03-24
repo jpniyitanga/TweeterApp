@@ -24,35 +24,35 @@ button {
 
 /* Styles for posted tweets */
 
-#tweets {
+.tweets {
   border: 0.1rem solid black;
   padding: 1rem;
 }
 
-#tweets:hover {
+.tweets:hover {
   box-shadow: 3px 3px 3px rgb(65, 13, 13);
 }
 
-article #tweets header {
+article .tweets header {
   display: flex;
   justify-content: space-between;
 }
 
-article #tweets header #username {  
+article .tweets header .handle {  
   color: gray;
 }
 
-article #tweets p {
+article .tweets p {
   border-bottom: 0.2rem solid;
   padding-bottom: 0.1rem;
 }
 
-article #tweets footer {
+article .tweets footer {
   display: flex;
   justify-content: space-between;
 }
 
-article #tweets footer .icons {
+article .tweets footer .icons {
   display: flex;  
 }
 
