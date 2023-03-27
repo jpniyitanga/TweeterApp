@@ -32,7 +32,9 @@ button {
 .tweets:hover {
   box-shadow: 3px 3px 3px rgb(65, 13, 13);
 }
-
+article {
+  margin-bottom: 1rem;
+}
 article .tweets header {
   display: flex;
   justify-content: space-between;
