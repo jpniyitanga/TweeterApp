@@ -6,6 +6,13 @@
 
 $(document).ready(function () {
 
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+  
+
   const createTweetElement = (tweetData) => {
     const html = `
       <article>
@@ -14,7 +21,7 @@ $(document).ready(function () {
           <div><img src="${tweetData.user.avatars}" alt=""> <span>${tweetData.user.name}</span> </div>              
           <div class="handle">${tweetData.user.handle}</div>            
         </header>
-        <p class="text">${tweetData.content.text}</p>
+        <p class="text">${escape(tweetData.content.text)}</p>
         <footer>
         <div>${timeago.format(tweetData.created_at)}</div>
         <div class="icons">
@@ -51,7 +58,7 @@ $(document).ready(function () {
 
   $("form").submit(function (e) {
     e.preventDefault();    
-    const contentLength = $("#tweet-text").text().length;
+    const contentLength = $("#tweet-text").val().length;    
     if (contentLength <= 0 ) {
       alert("Empty tweet not allowed!");      
     }
