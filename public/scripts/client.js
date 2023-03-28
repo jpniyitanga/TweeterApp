@@ -50,8 +50,8 @@ $(document).ready(function () {
   };
 
   $("form").submit(function (e) {
-    e.preventDefault();
-    const contentLength = $("#tweet-text").val().length;
+    e.preventDefault();    
+    const contentLength = $("#tweet-text").text().length;
     if (contentLength <= 0 ) {
       alert("Empty tweet not allowed!");      
     }
@@ -76,3 +76,4 @@ $(document).ready(function () {
 
   loadTweets()
 });
+
