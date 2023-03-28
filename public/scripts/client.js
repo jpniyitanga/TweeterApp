@@ -57,13 +57,16 @@ $(document).ready(function () {
   };
 
   $("form").submit(function (e) {
-    e.preventDefault();    
+    e.preventDefault();   
+    const errorElement = $("#error"); 
     const contentLength = $("#tweet-text").val().length;    
+    $("#error").slideUp();    
     if (contentLength <= 0 ) {
-      alert("Empty tweet not allowed!");      
+      $("#error").slideDown().text("⚠️ Empty tweet not allowed! ⚠️"); 
+      return;     
     }
     if (contentLength > 140) {
-      alert("Your tweet is too long.")
+      $("#error").slideDown().text("⚠️ Your tweet is too long. ⚠️")
       return;
     }
 
@@ -77,6 +80,7 @@ $(document).ready(function () {
       success: function () {
         console.log("Success");
         loadTweets();
+        $("textarea").val(""); // resets the form back to an empty form
       },
     });
   });
