@@ -51,6 +51,16 @@ $(document).ready(function () {
 
   $("form").submit(function (e) {
     e.preventDefault();
+    const contentLength = $("#tweet-text").val().length;
+    if (contentLength <= 0 ) {
+      alert("Empty tweet not allowed!");      
+    }
+    if (contentLength > 140) {
+      alert("Your tweet is too long.")
+      return;
+    }
+
+    
 
     const $formData = $("textarea").serialize();
     $.ajax({
