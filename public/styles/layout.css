@@ -43,12 +43,20 @@ main {
   }
   .content-container {
     display: flex;
+    word-break: break-all;
   }
-  .header-image {
+
+  .content-container .header-image {
     margin-left: 40px;
     margin-top: 200px;
     height: 400px;
+    width: 50%;
   }
+
+  .content-container .main {
+    width: 50%;
+  }
+
   nav {
     background-color: #4056a1;
   }
