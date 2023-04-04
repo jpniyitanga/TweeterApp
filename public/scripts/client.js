@@ -5,20 +5,22 @@
  */
 
 $(document).ready(function () {
-
+  $("#error").hide(); //Hides error message when page loads
   const escape = function (str) {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   };
-  
 
+  //Set structure of the tweet element
   const createTweetElement = (tweetData) => {
     const html = `
       <article>
       <div class="tweets">
         <header>               
-          <div><img src="${tweetData.user.avatars}" alt=""> <span>${tweetData.user.name}</span> </div>              
+          <div><img src="${tweetData.user.avatars}" alt=""> <span>${
+      tweetData.user.name
+    }</span> </div>              
           <div class="handle">${tweetData.user.handle}</div>            
         </header>
         <p class="text">${escape(tweetData.content.text)}</p>
@@ -37,54 +39,64 @@ $(document).ready(function () {
     return html;
   };
 
+  //
   const renderTweets = (tweets) => {
-    const tweetContainer = $(".tweets-container");
+    const tweetContainer = $(".tweets-container").empty(); //  Make tweet form empty by default
     for (const tweet of tweets) {
       const tweetElement = createTweetElement(tweet);
       tweetContainer.prepend(tweetElement);
     }
   };
-
+  //Show tweet on page
   const loadTweets = function () {
     $.ajax({
       url: "http://localhost:8080/tweets",
       method: "GET",
       dataType: "json",
-      success: function (data) {
+    })
+      .then((data) => {
         renderTweets(data);
-      },
-    });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
+  // Listen for submit event
   $("form").submit(function (e) {
-    e.preventDefault();   
-    const errorElement = $("#error"); 
-    const contentLength = $("#tweet-text").val().length;    
-    $("#error").slideUp();    
-    if (contentLength <= 0 ) {
-      $("#error").slideDown().text("⚠️ Empty tweet not allowed! ⚠️"); 
-      return;     
+    $("#error").hide();
+    e.preventDefault(); // prevent page from making another http request upon submit event
+
+    // Handle errors in case of empty tweet or long tweet
+    const errorElement = $("#error");
+    const contentLength = $("#tweet-text").val().length;
+    if (contentLength <= 0) {
+      $("#error").slideDown().text("⚠️ Empty tweet not allowed! ⚠️");
+      return;
     }
     if (contentLength > 140) {
-      $("#error").slideDown().text("⚠️ Your tweet is too long. ⚠️")
+      $("#error").slideDown().text("⚠️ Your tweet is too long. ⚠️");
       return;
     }
 
-    
+    const $formData = $("textarea").serialize(); // serialize form data
 
-    const $formData = $("textarea").serialize();
+    // submit tweet to the server and handle both success and failure cases
     $.ajax({
       url: "http://localhost:8080/tweets",
       method: "POST",
       data: $formData,
-      success: function () {
+    })
+      .then((result) => {
         console.log("Success");
         loadTweets();
         $("textarea").val(""); // resets the form back to an empty form
-      },
-    });
+        $("#char-counter").val(140); // resets the counter
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   });
 
-  loadTweets()
+  loadTweets();
 });
-
