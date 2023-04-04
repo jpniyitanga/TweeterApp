@@ -53,6 +53,10 @@ main {
     height: 400px;
   }
 
+  .tweets-container {
+    word-break: break-all; /* Breaks long word to next line*/
+  }
+
   nav {
     background-color: #4056a1;
   }
