@@ -1,3 +1,4 @@
+
 textarea {
   width: 100%;
   margin: auto;
@@ -7,7 +8,7 @@ textarea {
 
 button {
   background-color: #4056A1;
-  color: #FFFFFF;
+  color: #FFFFFF;    
 }
 
 .submit-counter {
@@ -16,11 +17,13 @@ button {
   font-family: Bungee;
 }
 
+
 .redFont {
   color: red;
 }
 
 /* Styles for posted tweets */
+
 .tweets {
   border: 0.1rem solid black;
   padding: 1rem;
@@ -29,17 +32,15 @@ button {
 .tweets:hover {
   box-shadow: 3px 3px 3px rgb(65, 13, 13);
 }
-
 article {
   margin-bottom: 1rem;
 }
-
 article .tweets header {
   display: flex;
   justify-content: space-between;
 }
 
-article .tweets header .handle {
+article .tweets header .handle {  
   color: gray;
 }
 
@@ -54,7 +55,7 @@ article .tweets footer {
 }
 
 article .tweets footer .icons {
-  display: flex;
+  display: flex;  
 }
 
 .icons a {
@@ -67,5 +68,6 @@ article .tweets footer .icons {
 
 #error {
   color: red;
-  border: 0.1rem solid red;
+  border: 0.1rem solid red
 }
+

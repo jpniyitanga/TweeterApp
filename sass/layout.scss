@@ -6,7 +6,6 @@
 html {
   box-sizing: border-box;
 }
-
 *,
 *:before,
 *:after {
@@ -16,10 +15,16 @@ html {
 /*
  * Global layout stuff
  */
+
+ $font-stack: Source Sans Pro, sans-serif;
+ $primary-color: #545149;
+ $nav-color-desktop: #4056a1;
+ $nav-color-mobile: coral; 
+
 body {
-  color: #545149;
+  color: $primary-color;
   font-size: 24px;
-  font-family: Source Sans Pro, sans-serif;
+  font-family: $font-stack
 }
 
 main {
@@ -30,10 +35,11 @@ main {
 /* Small screen styles */
 @media only screen and (max-width: 1024px) {
   nav {
-    background-color: coral;
+    background-color: $nav-color-mobile;
     background-image: url("../images/back-pattern.png");
   }
 }
+
 /* Desktop styles */
 @media only screen and (min-width: 1024px) {
   main {
@@ -41,15 +47,18 @@ main {
     margin-left: 40px;
     margin-right: 40px;
   }
+
   .content-container {
     display: flex;
   }
+
   .header-image {
     margin-left: 40px;
     margin-top: 200px;
     height: 400px;
   }
+
   nav {
-    background-color: #4056a1;
+    background-color: $nav-color-desktop;
   }
 }
